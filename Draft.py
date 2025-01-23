@@ -8,3 +8,4 @@ print(x)
 """ print(y)
 print(z)"""
 
+print("Hello",x,"how are you?")
