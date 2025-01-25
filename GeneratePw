@@ -1,13 +1,52 @@
-import re
+import random as r
+import IsPwRobust as I
+#caracters = [chr(i)  for i in range(32,127)]
 
-length = 0
-specifity = 0
-entropy = 0
+def AutoGenPw():
+    PwAuto = ""
+    for i in range(r.randint(14,20)):
+        x = r.randint(32,127)
+        PwAuto+= chr(x)
+    return PwAuto
+"""
+for i in range(10):
+    print(AutoGenPw())
+"""
 
-caracters = [chr(i)  for i in range(32,127)]
-#print(caracters)
+def GenPwByLen():
+    length = int(input())
+    PwGenByLen = ""
+    for i in range(length):
+        x = r.randint(32,127)
+        PwGenByLen+= chr(x)
+    return PwGenByLen
+"""
+for i in range(10):
+    print(GenPwByLen())
+"""
 
-## Tant que entropie < seuil, on ajoute de manière la plus aléatoire possible un car.
+# Ne fonctionne pas encore j'importe trop de trucs.
 
-# On réalise notre programme et on teste l'aléatoirabilité de l'outil.
+def GenPwByEntropy():
+    entropy = int(input())
+    PwGenByEntropy = ""
+    while(I.entropyOfPw(PwGenByEntropy)!=entropy):
+        x = r.randint(32,127)
+        PwGenByEntropy+=chr(x)
+    return PwGenByEntropy
+
+for i in range(10):
+    print(GenPwByEntropy())
+
+
+# Test de l'aléatoirabilité de randint.
+
+"""
+L = [r.randint(0,94) for i in range(10000000)]
+#print(L)
+print(len(L))
+
+for i in range(0,95):
+    print("nombre de",{i}, "est de",L.count(i))
+"""
 
