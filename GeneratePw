@@ -1,0 +1,13 @@
+import re
+
+length = 0
+specifity = 0
+entropy = 0
+
+caracters = [chr(i)  for i in range(32,127)]
+#print(caracters)
+
+## Tant que entropie < seuil, on ajoute de manière la plus aléatoire possible un car.
+
+# On réalise notre programme et on teste l'aléatoirabilité de l'outil.
+
