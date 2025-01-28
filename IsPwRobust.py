@@ -1,8 +1,23 @@
 import math
 import re
-import secrets as s
 
-## On commence par récupérer le mot de passe et ses caractéristiques pour ensuite les analyser.
+## On commence par comparer le mot de passe à la BDD pentest
+
+db = open("DataBaseOfPw.txt")
+x = db.read()
+pwDb = x.split()
+
+def CheckBdd():
+    pwToCheck = input()
+    isPresent = False
+    for pw in pwDb:
+        if (pw==pwToCheck):
+            isPresent = True
+    return isPresent
+
+""" print(CheckBdd("nico")) """
+
+# On analyse le mot de passe et ses caractéristiques.
 
 # Two functions necessary to get the entropy of the PW.
 

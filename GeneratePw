@@ -40,7 +40,6 @@ def GenPwByEntropy():
     entropyWanted = int(input())
     while(entropyOfPw(PwGenByEntropy)<=entropyWanted):
         PwGenByEntropy+= RandomCar()
-        print(PwGenByEntropy)
     return PwGenByEntropy 
 
 """
