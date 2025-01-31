@@ -11,3 +11,4 @@ print("Hello",x,"how are you?")
 """
 PwGenByEntropy = "a8!"
 print(entropyOfPw(PwGenByEntropy))
+
