@@ -5,8 +5,7 @@ import re
 
 def GetLengthOfPw(pwToCheck):
     L = len(pwToCheck)
-    message = "The length of the Pw is of" + L + "caracters"
-    return L, message
+    return L
 
 def GetRangeOfCaractersType(pwToCheck):
 
@@ -37,13 +36,12 @@ def GetRangeOfCaractersType(pwToCheck):
     if anySpecialCar == None:
         x -= 32
         message += "Where are your special caracters ?"
-    message += "the range of caracters is of"+ x
     
-    return x, message
+    return x
 
 def entropyOfPw(pw):
-    pwLength = GetLengthOfPw()[0]
-    X = GetRangeOfCaractersType(pw)[0]
+    pwLength = GetLengthOfPw(pw)
+    X = GetRangeOfCaractersType(pw)
     entropy = pwLength*math.log2(X)
     #print("pw entropy:",entropy,"bits")
     return entropy
@@ -65,9 +63,12 @@ def CheckDataBase(pwToCheck):
 """ print(CheckDataBase("nico")) """
 
 def CheckDangerousPatterns(pwToCheck):
-    pattern = 0 
-    return pattern
-
+    anyYear = re.search("\d{4}",pwToCheck)
+    anyNumber = re.search("\d{2}",pwToCheck)
+    anyDate = re.search("\d{1,2}/\d{2}/\d{4}",pwToCheck) # Warning ?
+    anyWord = re.search("[a-zA-Z]{3}",pwToCheck) 
+    anySpec = re.search("[[\x20-\x2F]|[\x3A-\x40]|[\x5B-\x60]|[\x7B-\x7E]]{3}",pwToCheck) # marche pas si différents caractères
+    return 0
 
 
 # On essaie de faire une fonction globale d'analyse, qui nous renvoie toutes les infos.Ne faire que des prints ? mettre tous les messages là ?
