@@ -72,19 +72,19 @@ def CheckDataBase(pwToCheck):
 
 def CheckDangerousPatterns(pwToCheck):
     M=""
-    anyYear = re.search("\\d{4}",pwToCheck)
+    anyYear = re.search(r"\d{4}",pwToCheck)
     if(anyYear!=None):
         M+="warning the pattern of a year has been found:"
-    anyNumber = re.search("\\d{2}",pwToCheck)
+    anyNumber = re.search(r"\d{2}",pwToCheck)
     if(anyNumber!=None):
         M+="warning the pattern of a number has been found:"
-    anyDate = re.search("\\d{1,2}/\\d{2}/\\d{4}",pwToCheck) # Warning ?
+    anyDate = re.search(r"\d{1,2}\/\d{2}\/\d{4}",pwToCheck) # Warning ?
     if(anyDate!=None):
         M+="warning the pattern of a Date has been found:"
     anyWord = re.search("[a-zA-Z]{3}",pwToCheck)
     if(anyWord!=None):
         M+="warning the pattern of a word has been found"
-    anySpec = re.search("[\\x20-\\x2F]|[\\x3A-\\x40]|[\\x5B-\\x60]|[\\x7B-\\x7E]{3}",pwToCheck) # marche pas si différents caractères
+    anySpec = re.search(r"[\x20-\x2F]|[\x3A-\x40]|[\x5B-\x60]|[\x7B-\x7E]{3}",pwToCheck) # marche pas si différents caractères
     if(anySpec!=None):
         M+="warning the pattern of a repetition of specar has been found"
     return M
